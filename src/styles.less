@@ -1,0 +1,74 @@
+// =====================
+// Variables
+// =====================
+@bg-body:        #555555;
+@bg-card:        #b8b5b5;
+@card-width:     300px;
+@card-radius:    10px;
+@avatar-size:    120px;
+@social-size:    60px;
+@primary-color:  #ffffff;
+@shadow-hover:   rgba(0, 0, 0, 0.4);
+@social-bg:      rgba(255, 255, 255, 0.1);
+
+// =====================
+// Mixins
+// =====================
+.flex-center() {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle(@size) {
+    width: @size;
+    height: @size;
+    border-radius: 50%;
+}
+
+// =====================
+// Estilos
+// =====================
+body {
+    font-family: Arial, sans-serif;
+    background-color: @bg-body;
+}
+
+.card {
+    width: @card-width;
+    margin: 50px auto;
+    background-color: @bg-card;
+    padding: 20px;
+    text-align: center;
+    border-radius: @card-radius;
+
+    img {
+        .circle(@avatar-size);
+    }
+
+    .social {
+        margin: 50px 0;
+
+        a {
+            .flex-center();
+            .circle(@social-size);
+            font-size: 2rem;
+            margin: 0 25px;
+            background: @social-bg;
+            color: @primary-color;
+            text-decoration: none;
+            transition: all 0.3s;
+
+            &:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 12px 25px @shadow-hover;
+            }
+        }
+    }
+
+    button {
+        padding: 10px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+}
